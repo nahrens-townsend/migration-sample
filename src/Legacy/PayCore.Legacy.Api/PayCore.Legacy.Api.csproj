@@ -8,6 +8,7 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <!-- Force transitive Microsoft.OpenApi to 2.7.5 (patched, CVE GHSA-v5pm-xwqc-g5wc) -->
     <PackageReference Include="Microsoft.OpenApi" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 
   <ItemGroup>

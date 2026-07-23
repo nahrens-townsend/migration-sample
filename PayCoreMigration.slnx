@@ -20,5 +20,6 @@
     <Project Path="tests/PayCore.Application.Tests/PayCore.Application.Tests.csproj" />
     <Project Path="tests/PayCore.Domain.Tests/PayCore.Domain.Tests.csproj" />
     <Project Path="tests/PayCore.Integration.Tests/PayCore.Integration.Tests.csproj" />
+    <Project Path="tests/PayCore.Legacy.Api.Tests/PayCore.Legacy.Api.Tests.csproj" />
   </Folder>
 </Solution>
