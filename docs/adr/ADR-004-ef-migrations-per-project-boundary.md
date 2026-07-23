@@ -11,7 +11,7 @@ Two independent EF Core DbContexts exist in this solution:
 
 | Project                      | DbContext             | Database          |
 | ---------------------------- | --------------------- | ----------------- |
-| `PayCore.Legacy.Database`    | `LegacyDbContext`     | Legacy SQL Server |
+| `PayCore.Legacy.Database`    | `LegacyPayrollContext` | Legacy SQL Server |
 | `PayCore.Infrastructure`     | `PayCoreDbContext`    | Modern SQL Server |
 
 During migration, both databases exist simultaneously. A shared or merged migration history would

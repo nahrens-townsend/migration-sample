@@ -1,4 +1,4 @@
-name: CI
+﻿name: CI
 
 on:
   push:
@@ -10,6 +10,23 @@ jobs:
   build-and-test:
     name: Build & Test (${{ matrix.configuration }})
     runs-on: ubuntu-latest
+
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          SA_PASSWORD: "YourStrong!Passw0rd"
+          ACCEPT_EULA: "Y"
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P 'YourStrong!Passw0rd' -Q 'SELECT 1' -No"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      LEGACY_DB_CONNECTION: "Server=localhost,1433;Database=PayCore_Legacy_Test;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;"
 
     strategy:
       fail-fast: false
@@ -25,11 +42,20 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
+      - name: Install EF Core tools
+        run: dotnet tool install --global dotnet-ef --version 10.0.10
+
       - name: Restore
         run: dotnet restore PayCoreMigration.slnx
 
       - name: Build
         run: dotnet build PayCoreMigration.slnx --configuration ${{ matrix.configuration }} --no-restore
+
+      - name: Check for pending EF model changes (Legacy)
+        run: >
+          dotnet ef migrations has-pending-model-changes
+          --project src/Legacy/PayCore.Legacy.Database
+          --startup-project src/Legacy/PayCore.Legacy.Database
 
       - name: Test
         run: >
