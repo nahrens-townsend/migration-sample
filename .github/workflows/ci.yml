@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: Build & Test (${{ matrix.configuration }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [Debug, Release]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore PayCoreMigration.slnx
+
+      - name: Build
+        run: dotnet build PayCoreMigration.slnx --configuration ${{ matrix.configuration }} --no-restore
+
+      - name: Test
+        run: >
+          dotnet test PayCoreMigration.slnx
+          --configuration ${{ matrix.configuration }}
+          --no-build
+          --logger trx
+          --results-directory ./TestResults/${{ matrix.configuration }}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.configuration }}
+          path: TestResults/${{ matrix.configuration }}
+          if-no-files-found: ignore

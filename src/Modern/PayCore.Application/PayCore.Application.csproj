@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\PayCore.Domain\PayCore.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- TargetFramework, Nullable, ImplicitUsings, TreatWarningsAsErrors inherited from Directory.Build.props -->
+  </PropertyGroup>
+
+</Project>

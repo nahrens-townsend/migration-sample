@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Legacy/">
+    <Project Path="src/Legacy/PayCore.Legacy.Api/PayCore.Legacy.Api.csproj" />
+    <Project Path="src/Legacy/PayCore.Legacy.Database/PayCore.Legacy.Database.csproj" />
+  </Folder>
+  <Folder Name="/src/Migration/">
+    <Project Path="src/Migration/PayCore.Migration.Core/PayCore.Migration.Core.csproj" />
+    <Project Path="src/Migration/PayCore.Migration.DataAccess/PayCore.Migration.DataAccess.csproj" />
+    <Project Path="src/Migration/PayCore.Migration.Runner/PayCore.Migration.Runner.csproj" />
+  </Folder>
+  <Folder Name="/src/Modern/">
+    <Project Path="src/Modern/PayCore.Api/PayCore.Api.csproj" />
+    <Project Path="src/Modern/PayCore.Application/PayCore.Application.csproj" />
+    <Project Path="src/Modern/PayCore.BackgroundWorkers/PayCore.BackgroundWorkers.csproj" />
+    <Project Path="src/Modern/PayCore.Domain/PayCore.Domain.csproj" />
+    <Project Path="src/Modern/PayCore.Infrastructure/PayCore.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PayCore.Application.Tests/PayCore.Application.Tests.csproj" />
+    <Project Path="tests/PayCore.Domain.Tests/PayCore.Domain.Tests.csproj" />
+    <Project Path="tests/PayCore.Integration.Tests/PayCore.Integration.Tests.csproj" />
+  </Folder>
+</Solution>

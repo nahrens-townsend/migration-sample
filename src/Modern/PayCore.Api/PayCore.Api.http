@@ -1,0 +1,6 @@
+@PayCore.Api_HostAddress = http://localhost:5278
+
+GET {{PayCore.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

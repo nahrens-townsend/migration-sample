@@ -10,8 +10,8 @@ End-to-end demonstration of migrating a legacy payment-processing system to a mo
 ## Quick start
 
 ```bash
-dotnet build
-dotnet test
+dotnet build PayCoreMigration.slnx
+dotnet test PayCoreMigration.slnx
 ```
 
 ## Solution map
