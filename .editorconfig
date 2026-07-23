@@ -1,0 +1,55 @@
+root = true
+
+[*]
+charset                  = utf-8-bom
+end_of_line              = crlf
+insert_final_newline     = true
+trim_trailing_whitespace = true
+
+[*.{cs,csx}]
+indent_style = space
+indent_size  = 4
+
+# var preferences
+dotnet_style_var_for_built_in_types                    = false : suggestion
+dotnet_style_var_when_type_is_apparent                 = true  : suggestion
+dotnet_style_var_elsewhere                             = false : suggestion
+
+# Naming conventions ─────────────────────────────────────────────────────────
+
+# Symbols
+dotnet_naming_symbols.types.applicable_kinds           = class, struct, interface, enum, delegate
+dotnet_naming_symbols.types.applicable_accessibilities = *
+
+dotnet_naming_symbols.private_fields.applicable_kinds           = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_symbols.locals.applicable_kinds = local, parameter
+
+# Styles
+dotnet_naming_style.pascal_case.capitalization         = pascal_case
+
+dotnet_naming_style.camel_case.capitalization          = camel_case
+
+dotnet_naming_style.underscore_prefix.required_prefix  = _
+dotnet_naming_style.underscore_prefix.capitalization   = camel_case
+
+# Rules
+dotnet_naming_rule.types_pascal.symbols                = types
+dotnet_naming_rule.types_pascal.style                  = pascal_case
+dotnet_naming_rule.types_pascal.severity               = warning
+
+dotnet_naming_rule.private_fields_underscore.symbols   = private_fields
+dotnet_naming_rule.private_fields_underscore.style     = underscore_prefix
+dotnet_naming_rule.private_fields_underscore.severity  = warning
+
+dotnet_naming_rule.locals_camel.symbols                = locals
+dotnet_naming_rule.locals_camel.style                  = camel_case
+dotnet_naming_rule.locals_camel.severity               = warning
+
+[*.{json,xml,csproj,props,targets}]
+indent_style = space
+indent_size  = 2
+
+[*.md]
+trim_trailing_whitespace = false

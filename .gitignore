@@ -1,0 +1,36 @@
+## .NET / Build output
+bin/
+obj/
+*.user
+.vs/
+.idea/
+.vscode/settings.json
+
+## Secrets — never commit these
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Test results / coverage
+TestResults/
+coverage/
+*.trx
+*.coveragexml
+
+## Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+## Migration runner output
+# EF Core migration snapshots are intentionally committed; exclude only generated SQL dumps
+migrations-output/
